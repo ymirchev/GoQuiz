@@ -39,7 +39,7 @@ func (s *SlackListener) handleMessageEvent(ev *slack.MessageEvent) error {
 		return fmt.Errorf("invalid message")
 	}
 
-	// Display user quiz settings
+	// Display quiz settings to the user
 	ats, cid := ComposeQuizConfig()
 	UsersData.Init(ev.Msg.User)
 	UsersData.SetCallbackID(ev.Msg.User, cid)

@@ -9,9 +9,7 @@ import (
 )
 
 type SlackListener struct {
-	Client    *slack.Client
-	BotID     string
-	ChannelID string
+	Client *slack.Client
 }
 
 // ListenAndResponse listens slack events and response particular messages. It replies by slack message button.

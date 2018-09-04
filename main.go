@@ -8,16 +8,12 @@ import (
 )
 
 func main() {
-	env := Config()
+	var env EnvConfig = Config()
 
 	// Listening slack event and response
 	log.Printf("[INFO] Start slack event listening")
 	client := slack.New(env.BotToken)
-	slackListener := &SlackListener{
-		Client:    client,
-		BotID:     env.BotID,
-		ChannelID: env.ChannelID,
-	}
+	slackListener := &SlackListener{Client: client}
 	go slackListener.ListenAndResponse()
 
 	// Register handler to receive interactive message
